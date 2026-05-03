@@ -1,7 +1,5 @@
 """
 A5 — Pandas analysis of Seattle Seahawks play-by-play data
-Author: Jasmine Sayed
-HCDE 530, Spring 2026
 
 Dataset: NFL play-by-play data from the nflverse project, accessed via the
 nflreadpy Python package (https://github.com/nflverse/nflreadpy).
@@ -25,8 +23,7 @@ import pandas as pd
 # Load data
 # ----------------------------------------------------------------------
 # Pull play-by-play for the past ten seasons. nflreadpy returns a Polars
-# DataFrame, so I convert to pandas right away because the assignment
-# (and the rest of class) is built around pandas.
+# DataFrame, so I convert to pandas right away because the assignment is built around pandas.
 print("Loading nflverse play-by-play data for 2016-2025...")
 pbp = nfl.load_pbp(seasons=list(range(2016, 2026))).to_pandas()
 
