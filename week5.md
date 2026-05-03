@@ -1,0 +1,9 @@
+# Week 5 Competency Claims
+
+## C5 — Data Analysis with Pandas
+
+I loaded ten seasons of NFL play-by-play data through `nflreadpy.load_pbp(seasons=range(2016, 2026))`, converted it to a pandas DataFrame, and filtered to plays where Seattle was on offense (`posteam == 'SEA'`). On that subset I used `groupby('season').agg(...)` to compute DK Metcalf's targets, yards per target, and EPA per target for each of his six Seahawks seasons (2019 to 2024), which produced a six-row table I can use to pick his most efficient season by EPA per target. I also used `groupby('season')['touchdown'].mean()` on red zone plays (filtered with `yardline_100 <= 20`) to convert the 0/1 touchdown column into a per-season red zone TD rate, which is the metric that actually answers Question 2 from MP1a. Picking groupby + mean over a flat aggregate was a deliberate choice: a single overall rate would have hidden the year-over-year trend the question is asking about.
+
+## C2 — Code Literacy and Documentation
+
+Every pandas operation in `a5_seahawks.py` has a `#` comment that explains what I am asking and what the answer means, not just what the code does. The file opens with a module docstring that names the data source (nflverse via `nflreadpy`), the scope (Seattle offensive plays, 2016 to 2025), and the three MP1a questions the script answers, so a reviewer can orient before reading any code. One specific documentation decision: when filtering for DK Metcalf I used `str.contains('Metcalf', na=False)` instead of an exact match, and the inline comment explains why: nflfastR sometimes stores receiver names as `D.Metcalf` and sometimes as `DK.Metcalf`, so a substring match is more robust than equality. Naming the trade-off in a comment is the kind of "why, not just what" documentation that makes the script readable for someone other than me.
