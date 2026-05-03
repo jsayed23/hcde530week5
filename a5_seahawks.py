@@ -1,7 +1,5 @@
 """
 A5: Pandas analysis of Seattle Seahawks play-by-play data
-Author: Jasmine Sayed
-HCDE 530, Spring 2026
 
 Dataset: NFL play-by-play data from the nflverse project, accessed via the
 nflreadpy Python package (https://github.com/nflverse/nflreadpy).
